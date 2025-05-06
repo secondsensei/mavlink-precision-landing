@@ -236,6 +236,9 @@ void send_landing_target(int fd, uint64_t time_usec, uint8_t target_num,
     mavlink_message_t msg;
     uint8_t buf[MAVLINK_MAX_PACKET_LEN];
     
+    // Create quaternion array in the expected order (w, x, y, z)
+    float q[4] = {q_w, q_x, q_y, q_z};
+    
     // Pack the LANDING_TARGET message
     mavlink_msg_landing_target_pack(OUR_SYSTEM_ID, OUR_COMPONENT_ID, &msg,
                                    time_usec,       // Timestamp (microseconds since system boot or UNIX epoch)
@@ -249,11 +252,8 @@ void send_landing_target(int fd, uint64_t time_usec, uint8_t target_num,
                                    x,               // x position of the landing target in MAV_FRAME
                                    y,               // y position of the landing target in MAV_FRAME
                                    z,               // z position of the landing target in MAV_FRAME
-                                   q_w,             // Quaternion of landing target orientation (w, x, y, z)
-                                   q_x,
-                                   q_y,
-                                   q_z,
-                                   LANDING_TARGET_TYPE_VISION_FIDUCIAL, // Type of landing target
+                                   q,               // Quaternion of landing target orientation (w, x, y, z)
+                                   LANDING_TARGET_TYPE_LIGHT_BEACON, // Type of landing target
                                    1);              // Position valid (boolean: 0 = invalid, 1 = valid)
     
     // Copy the message to the send buffer
