@@ -1,0 +1,2 @@
+timestamp tagid tag_x tag_y tag_z tag_roll tag_pitch tag_yaw
+MM:SS.xxx ID m m m deg deg deg
