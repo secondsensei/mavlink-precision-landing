@@ -253,7 +253,7 @@ void send_landing_target(int fd, uint64_t time_usec, uint8_t target_num,
                                    y,               // y position of the landing target in MAV_FRAME
                                    z,               // z position of the landing target in MAV_FRAME
                                    q,               // Quaternion of landing target orientation (w, x, y, z)
-                                   LANDING_TARGET_TYPE_LIGHT_BEACON, // Type of landing target
+                                   LANDING_TARGET_TYPE_VISION_FIDUCIAL, // Type of landing target
                                    1);              // Position valid (boolean: 0 = invalid, 1 = valid)
     
     // Copy the message to the send buffer

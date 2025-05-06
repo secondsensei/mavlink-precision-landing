@@ -1,0 +1,37 @@
+You can turn off the systemd timer for your program using the following commands:
+
+To stop the timer temporarily (until next reboot):
+
+```bash
+sudo systemctl stop mavlink-precision-landing.timer
+```
+
+To both stop the timer and prevent it from starting on future reboots:
+
+```bash
+sudo systemctl stop mavlink-precision-landing.timer
+sudo systemctl disable mavlink-precision-landing.timer
+```
+
+If the service is currently running and you want to stop it immediately:
+
+```bash
+sudo systemctl stop mavlink-precision-landing.service
+```
+
+You can check the status to confirm it's been stopped:
+
+```bash
+sudo systemctl status mavlink-precision-landing.timer
+sudo systemctl status mavlink-precision-landing.service
+```
+
+If you want to completely remove the configuration (though this isn't usually necessary):
+
+```bash
+sudo rm /etc/systemd/system/mavlink-precision-landing.timer
+sudo rm /etc/systemd/system/mavlink-precision-landing.service
+sudo systemctl daemon-reload
+```
+
+These commands give you full control over when your program runs, allowing you to temporarily disable it or permanently remove it from the startup sequence.
