@@ -35,3 +35,8 @@ sudo systemctl daemon-reload
 ```
 
 These commands give you full control over when your program runs, allowing you to temporarily disable it or permanently remove it from the startup sequence.
+
+
+Start:
+sudo systemctl enable mavlink-precision-landing.timer
+sudo systemctl start mavlink-precision-landing.timer
