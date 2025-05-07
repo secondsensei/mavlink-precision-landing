@@ -1,4 +1,4 @@
-# MAVLink Precision Landing System: Technical Summary
+# MAVLink Precision Landing System Summary
 
 This program implements a vision-based precision landing system for drones running PX4 autopilot, using a Raspberry Pi as a companion computer with a camera to detect ArUco markers.
 
@@ -34,7 +34,6 @@ The system consists of three primary components:
 
 ## Key Features
 
-- Automatic startup 60 seconds after system boot via systemd
 - Real-time logging of telemetry and detection data
 - Coordinate frame conversions for precise target positioning
 - Automatic shutdown on system signals for graceful termination
